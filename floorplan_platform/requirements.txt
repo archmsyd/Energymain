@@ -1,0 +1,7 @@
+fastapi>=0.110.0
+uvicorn>=0.29.0
+pydantic>=2.6.0
+rq>=1.16.0
+redis>=5.0.1
+pymupdf>=1.23.0
+ifcopenshell>=0.7.0

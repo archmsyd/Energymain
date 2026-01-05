@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Floorplan Platform</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div>
+        <h1>Floorplan Platform</h1>
+        <p>Upload a PDF, choose a track, and export to IFC.</p>
+      </div>
+      <div class="hero-actions">
+        <button class="primary">New job</button>
+        <button class="ghost">View demo IFC</button>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="card">
+        <h2>1. Upload PDF</h2>
+        <p class="muted">Choose a CAD-exported vector PDF or a scanned raster PDF.</p>
+        <label class="file">
+          <input type="file" id="pdfInput" accept="application/pdf" />
+          <span>Select PDF</span>
+        </label>
+        <div class="row">
+          <label>
+            Track
+            <select id="trackSelect">
+              <option value="raster">Track B — Raster PDF</option>
+              <option value="vector">Track A — Vector PDF</option>
+            </select>
+          </label>
+          <label>
+            Manual scale (m/px)
+            <input id="scaleInput" type="number" step="0.0001" value="0.001" />
+          </label>
+        </div>
+        <button class="primary" id="createJob">Create job</button>
+      </section>
+
+      <section class="card">
+        <h2>2. Page picker</h2>
+        <p class="muted">Preview pages and select which floors to process.</p>
+        <div class="pages">
+          <div class="page-placeholder">Page 1</div>
+          <div class="page-placeholder">Page 2</div>
+          <div class="page-placeholder">Page 3</div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>3. Detect &amp; edit</h2>
+        <ul class="checklist">
+          <li>Run detection to extract walls, openings, and spaces.</li>
+          <li>Adjust wall thickness and opening sizes.</li>
+          <li>Review BIM-ready vectors.</li>
+        </ul>
+        <button class="ghost">Detect elements</button>
+        <button class="ghost">Open editor</button>
+      </section>
+
+      <section class="card">
+        <h2>4. Export</h2>
+        <p class="muted">Generate IFC, edit with ThatOpen, and download.</p>
+        <div class="export">
+          <button class="primary">Export IFC</button>
+          <button class="ghost">Download plan.json</button>
+        </div>
+        <div class="status">
+          <span class="badge">Status</span>
+          <span id="statusText">Waiting for upload</span>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
