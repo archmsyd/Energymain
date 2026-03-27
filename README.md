@@ -43,3 +43,18 @@ python -m pytest tests/
 sphinx-apidoc -f -e -d 4 -o ./docs ./honeybee_openstudio
 sphinx-build -b html ./docs ./docs/_build/docs
 ```
+## EPW Analytics App (Interactive Gauge Cluster)
+
+This repo now includes a lightweight Streamlit app for EPW analytics:
+
+```bash
+pip install streamlit plotly pandas
+streamlit run epw_dashboard_app.py
+```
+
+Features:
+- Upload any `.epw` weather file.
+- Automatic location parsing (city/country/lat/lon) + world map marker.
+- "World-dominance" gauge cluster for key metrics.
+- Interactive time-series metric explorer.
+- Monthly aggregated analytics and raw data preview.
